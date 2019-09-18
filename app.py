@@ -39,13 +39,21 @@ def callback():
 def handle_message(event):
     msg = event.message.text
     r = '很抱歉,我只認識甲蟲王者'
-    if msg == ['大頭', '渣男']:
-        r = '三重小胖'
-    elif msg == '你是誰':
+
+    if msg in ['大頭', '渣男']:
+        message = ImageSendMessage(
+            original_content_url='https://example.com/original.jpg',
+            preview_image_url='https://example.com/preview.jpg'
+            )
+        line_bot_api.reply_message(event.reply_token, message)
+    
+        return
+
+    if msg == '你是誰':
         r = '傑出的閃亮亮'
     elif '愷' in msg:
         r = '天母劉德華？'
-    elif msg == ['曾昱瑋', '小狗']:
+    elif msg in ['曾昱瑋', '小狗']:
         r = '約妹帝王'
     elif '讀' in msg:
         r = '怎麼又有人已讀～'
