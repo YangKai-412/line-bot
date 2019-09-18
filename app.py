@@ -57,6 +57,12 @@ def handle_message(event):
         r = '約妹帝王'
     elif '讀' in msg:
         r = '怎麼又有人已讀～'
+    elif '彥' in msg:
+        r = '彥丞該戒煙了'
+    elif ['股票', '石油', '退休'] in msg:
+        r = '要起飛了嗎'
+    elif '敦' in msg:
+        r = '董事長好'
 
     line_bot_api.reply_message(
         event.reply_token,
