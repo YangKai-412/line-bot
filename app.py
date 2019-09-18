@@ -42,7 +42,7 @@ def handle_message(event):
 
     if msg in ['大頭', '渣男']:
         message = ImageSendMessage(
-            original_content_url='https://imgur.com/A8noZDB',
+            original_content_url='https://i.imgur.com/A8noZDB.jpg',
             preview_image_url='https://example.com/preview.jpg'
             )
         line_bot_api.reply_message(event.reply_token, message)
