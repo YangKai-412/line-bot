@@ -49,8 +49,8 @@ def handle_message(event):
     
         return
 
-    if msg == '你是誰':
-        r = '傑出的閃亮亮'
+    if '誰' in msg:
+        r = '我是傑出的閃亮亮'
     elif '愷' in msg:
         r = '天母劉德華？'
     elif msg in ['曾昱瑋', '小狗']:
