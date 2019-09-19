@@ -40,19 +40,22 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
-
+    i = random.randint(1,2)
     if msg in ['大頭', '渣男']:
-        while True:
-            u1 = ''.join(random.choice(string.ascii_letters + string.digits) for x in range(5))
-            image_file = 'https://i.imgur.com/'+u1+'.jpg'
-            img = Image.open(urllib.request.urlopen(image_file))
-            width, height = img.size
-            if width != 161:
-                break
-            else:
-                continue  
-  
-            return image_file
+        if i == 1:
+            message = ImageSendMessage(
+                original_content_url='https://example.com/original.jpg',
+                preview_image_url='https://i.imgur.com/A8noZDB.jpg'          
+                )
+            line_bot_api.reply_message(event.reply_token, message)
+        elif i == 2:
+            message = ImageSendMessage(
+                original_content_url='https://example.com/original.jpg',
+                preview_image_url='https://i.imgur.com/Q808Q6d.jpg'          
+                )
+            line_bot_api.reply_message(event.reply_token, message)
+    
+        return
 
     if '誰' in msg:
         r = '我是傑出的閃亮亮'
