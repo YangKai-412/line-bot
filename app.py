@@ -41,7 +41,7 @@ def callback():
 def handle_message(event):
     msg = event.message.text
     i = random.randint(1,6)
-    if msg in ['大頭', '渣男']:
+    if msg in ['大頭', '暖男']:
         if i == 1:
             message = ImageSendMessage(
                 original_content_url='https://example.com/original.jpg',
