@@ -1,4 +1,4 @@
-from flask import Flask, request, abort, random
+from flask import Flask, request, abort
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -40,10 +40,9 @@ def handle_message(event):
     msg = event.message.text
 
     if msg in ['大頭', '渣男']:
-        message = ImageSendMessage.random.randint(
+        message = ImageSendMessage(
             original_content_url='https://example.com/original.jpg',
-            preview_image_url='https://i.imgur.com/A8noZDB.jpg',
-            preview_image_url='https://i.imgur.com/Q808Q6d.jpg'
+            preview_image_url='https://i.imgur.com/A8noZDB.jpg'          
             )
         line_bot_api.reply_message(event.reply_token, message)
     
