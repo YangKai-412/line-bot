@@ -40,7 +40,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
-    i = random.randint(1,2)
+    i = random.randint(1,6)
     if msg in ['大頭', '渣男']:
         if i == 1:
             message = ImageSendMessage(
@@ -52,6 +52,30 @@ def handle_message(event):
             message = ImageSendMessage(
                 original_content_url='https://example.com/original.jpg',
                 preview_image_url='https://i.imgur.com/Q808Q6d.jpg'          
+                )
+            line_bot_api.reply_message(event.reply_token, message)
+        elif i == 3:
+            message = ImageSendMessage(
+                original_content_url='https://example.com/original.jpg',
+                preview_image_url='https://i.imgur.com/zzxL0hw.jpg'          
+                )
+            line_bot_api.reply_message(event.reply_token, message)
+        elif i == 4:
+            message = ImageSendMessage(
+                original_content_url='https://example.com/original.jpg',
+                preview_image_url='https://i.imgur.com/4RT5VB3.jpg'          
+                )
+            line_bot_api.reply_message(event.reply_token, message)
+        elif i == 5:
+            message = ImageSendMessage(
+                original_content_url='https://example.com/original.jpg',
+                preview_image_url='https://i.imgur.com/OYkhR9c.jpg'          
+                )
+            line_bot_api.reply_message(event.reply_token, message)
+        elif i == 6:
+            message = ImageSendMessage(
+                original_content_url='https://example.com/original.jpg',
+                preview_image_url='https://i.imgur.com/KpL9rsz.jpg'          
                 )
             line_bot_api.reply_message(event.reply_token, message)
     
